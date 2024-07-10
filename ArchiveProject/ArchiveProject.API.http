@@ -1,5 +1,0 @@
-﻿@ArchiveProject.API_HostAddress = https://localhost:7296
-
-GET {{ArchiveProject.API_HostAddress}}/api/folders
-
-###

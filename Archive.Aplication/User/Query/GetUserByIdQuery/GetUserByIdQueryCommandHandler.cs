@@ -12,8 +12,9 @@ public class GetUserByIdQueryCommandHandler(ILogger<GetUserByIdQueryCommandHandl
 {
     public async Task<Domain.Entites.User> Handle(GetUserByIdQueryCommand request, CancellationToken cancellationToken)
     {
-        
+        logger.LogInformation("Getting user by id");
         var dbUser = await userStore.FindByIdAsync(request!.Id, cancellationToken);
+         dbUser.SharedItems.ToList();
         return dbUser;
 
 

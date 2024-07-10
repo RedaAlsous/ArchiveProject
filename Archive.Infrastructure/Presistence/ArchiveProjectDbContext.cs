@@ -13,6 +13,8 @@ internal class ArchiveProjectDbContext(DbContextOptions<ArchiveProjectDbContext>
     internal DbSet<Efolder> folders { get; set; }
     internal DbSet<SharedItem> SharedItems { get; set; }
 
+    public DbSet<CustomError> Errors { get; set; }
+
 
 
 
@@ -26,7 +28,7 @@ internal class ArchiveProjectDbContext(DbContextOptions<ArchiveProjectDbContext>
             .HasForeignKey(d => d.EfolderId)
             .OnDelete(DeleteBehavior.ClientCascade);
 
-        modelBuilder.Entity<User>()
+         modelBuilder.Entity<User>()
             .HasMany(e => e.SharedItems)
             .WithOne(e => e.User)
             .HasForeignKey(e => e.SharedItemUserId)
@@ -40,13 +42,13 @@ internal class ArchiveProjectDbContext(DbContextOptions<ArchiveProjectDbContext>
 
 
 
-        //  modelBuilder.Entity<SharedItem>()
-        //     .HasMany(r => r.User)
-        //     .WithOne()
-        //     .HasForeignKey(n => n.SharedItemUserId)
-        //     .WillCascadeOnDelete(false);
-        //.HasRequired(n => n.User)
-        //.WithMany(a => a.SharedItems)
+       //   modelBuilder.Entity<SharedItem>()
+           //  .HasMany(e => e.User)
+            // .WithOne(e => e.SharedItems)
+           //  .HasForeignKey(n => n.SharedItemUserId)
+          //   .WillCascadeOnDelete(false);
+       // .HasRequired(n => n.User)
+       // .WithMany(a => a.SharedItems)
 
     }
 }

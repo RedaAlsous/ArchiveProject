@@ -29,4 +29,13 @@ internal class SharedItemRepository(ArchiveProjectDbContext dbContext) : IShared
            .FirstOrDefaultAsync(x => x.Id == id);
         return shared;
     }
+
+
+    public async Task Create(SharedItem entity)
+    {
+        dbContext.SharedItems.Add(entity);
+        await dbContext.SaveChangesAsync();
+        
+
+    }
 }

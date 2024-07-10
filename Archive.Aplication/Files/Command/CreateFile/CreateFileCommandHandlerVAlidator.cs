@@ -11,8 +11,11 @@ public class CreateFileCommandHandlerVAlidator : AbstractValidator<CreateFileCom
         RuleFor(dto => dto.Name)
             .Length(3, 100);
 
-        RuleFor(dto => dto.Name)
-            .Length(1, 200);
+        RuleFor(dto => dto.CreatedDate)
+            .NotEmpty().WithMessage("CreatedDate is required");
+
+        RuleFor(dto => dto.ModifiedDate)
+            .NotEmpty().WithMessage("ModifiedDate is required");
 
         RuleFor(dto => dto.Type)
             .Must(validCategories.Contains)

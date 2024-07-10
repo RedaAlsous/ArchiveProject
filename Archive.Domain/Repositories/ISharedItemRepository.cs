@@ -9,6 +9,8 @@ public interface ISharedItemRepository
     Task<IEnumerable<SharedItem>> GetAllAsync();
 
     Task<SharedItem?> GetByIdAsync(int id);
+    Task Create(SharedItem entity);
+
 
     Task Delete(SharedItem entity);
 }

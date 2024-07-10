@@ -10,17 +10,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
-namespace Archive.Application.Shared.Query
+namespace Archive.Application.Shared.Query.GetAllShared
 {
-    public  class GetAllSharedQueryHandler(ILogger<GetAllSharedQueryHandler> logger,
+    public class GetAllSharedQueryHandler(ILogger<GetAllSharedQueryHandler> logger,
        ISharedItemRepository sharedItemRepository,
-       IUserContext userContext) : IRequestHandler<GetAllSharedQuery, IEnumerable<SharedItem>>
+       IUserContext userContext,
+       UserManager<Domain.Entites.User> userManager) : IRequestHandler<GetAllSharedQuery, IEnumerable<SharedItem>>
     {
         public async Task<IEnumerable<SharedItem>> Handle(GetAllSharedQuery request, CancellationToken cancellationToken)
         {
-            //var user = userContext.GetCurrentUser();
-            //List<SharedItem> sharedItems= user!.SharedItems.ToList();
+
+
+            //var user = await userContext.GetCurrentUser();
+            // List<SharedItem> sharedItems= user!.SharedItems.ToList();
             logger.LogInformation("Getting all SharedItems");
             var shared = await sharedItemRepository.GetAllAsync();
             return shared;

@@ -2,6 +2,7 @@ using Archive.Application.Extensions;
 using Archive.Domain.Entites;
 using Archive.Infrastructure.Extensions;
 using ArchiveProject;
+using ArchiveProject.logging;
 using ArchiveProject.Middelweres;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
@@ -25,8 +26,7 @@ builder.Services.AddSwaggerGen((opt =>
         Type = "string",
         Format = "date",
         Example = new OpenApiString(DateTime.Today.ToString("yyyy-MM-dd"))
-    })
-    
+    })  
 ));
 builder.Services.AddSwaggerGen(c =>
 {
@@ -44,6 +44,12 @@ builder.Services.AddSwaggerGen(c =>
             },
         []
     }});
+});
+
+
+builder.Logging.AddDbLogger(options =>
+{
+    builder.Configuration.GetSection("Logging").GetSection("Database").GetSection("Options").Bind(options);
 });
 
 builder.Host.UseSerilog((context, configuration) =>

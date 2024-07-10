@@ -13,8 +13,8 @@ public class GetAllUserQueryCommandHandler(ILogger<GetAllUserQueryCommandHandler
     public async Task<IEnumerable<Domain.Entites.User>> Handle(GetAllUserQueryCommand request, CancellationToken cancellationToken)
     {
 
-
-        return userManager.Users;
+        logger.LogInformation("Getting all Users");
+        return  userManager.Users;
         
     }
 }
