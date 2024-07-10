@@ -1,0 +1,101 @@
+@ArchiveProject_HostAddress = https://localhost:7296
+
+
+GET {{ArchiveProject_HostAddress}}/api/folders
+
+###
+
+GET {{ArchiveProject_HostAddress}}/api/folders/1
+
+###
+
+POST {{ArchiveProject_HostAddress}}/api/folders
+Content-Type: application/json
+
+{
+  "Name": "Spfeq",
+  "Path": "C:\\Users\\ASUS\\Downloads\\Compressed",
+  "CreatedDate": "2020-02-12",
+  "ModifiedDate": "2022-03-22"
+}
+
+###
+
+PUT {{ArchiveProject_HostAddress}}/api/folders/1
+Content-Type: application/json
+Accept: application/json
+{
+   "Name": "fsdffew",
+   "Path": "C:\\Urs\\ASUS\\Downloads\\bdaad",
+   "CreatedDate": "2020-02-2",
+   "ModifiedDate": "2022-05-23"
+}
+
+###
+
+GET {{ArchiveProject_HostAddress}}/api/files
+
+###
+
+GET {{ArchiveProject_HostAddress}}/api/files/4
+
+###
+
+POST {{ArchiveProject_HostAddress}}/api/files
+Content-Type: application/json
+
+{
+  "name": "EnmH1.pdf",
+ "Path": "D:\\AIU",
+  "size": 500,
+  "type": "data",
+  "createdDate": "2021-07-08",
+  "modifiedDate": "2024-07-08",
+  "efolderId": 1
+}
+
+###
+
+DELETE {{ArchiveProject_HostAddress}}/api/files/5
+
+###
+
+PUT {{ArchiveProject_HostAddress}}/api/files/{id}
+Content-Type: application/json
+
+{
+  //UpdateFileCommand
+}
+
+###
+
+POST {{ArchiveProject_HostAddress}}/register
+Content-Type: application/json
+{
+  "email": "testuser@test.com",
+  "password": "Password1!"
+}
+
+###
+
+POST {{ArchiveProject_HostAddress}}/login
+Content-Type: application/json
+{
+  "email": "testuser@test.com",
+  "password": "Password1!"
+}
+
+
+###
+
+
+PUT {{ArchiveProject_HostAddress}}/api/user/9f1cf2a9-14fd-443d-bed3-94b3706d5e00
+Content-Type: application/json
+Accept: application/json
+{
+  "Name": "Reda",
+  "Email": "Reda@reda.test"
+}
+
+
+###
